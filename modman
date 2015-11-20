@@ -1,0 +1,4 @@
+src/app/code/local/MageProfis/Hreflang/                                                 app/code/local/MageProfis/Hreflang/
+src/app/design/frontend/base/default/template/page/html/head/hreflang.phtml             app/design/frontend/base/default/template/page/html/head/hreflang.phtml
+src/app/design/frontend/base/default/layout/mageprofis-hreflang.xml                     app/design/frontend/base/default/layout/mageprofis-hreflang.xml
+src/app/etc/modules/MageProfis_Hreflang.xml                                             app/etc/modules/MageProfis_Hreflang.xml

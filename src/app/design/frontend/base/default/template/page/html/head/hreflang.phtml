@@ -1,0 +1,11 @@
+<?php /* @var $this MageProfis_Hreflang_Block_Hreflang */ ?>
+<?php foreach($this->getStores() as $_store): ?>
+    <?php if($_store->getStoreId() == '0'): ?>
+        <?php continue; ?>
+    <?php endif;?>
+    <?php $langcode = $this->getLangCodeByStoreId($_store->getStoreId()) ?>
+    <?php $request = $this->getRequestPath($_store->getStoreId()); ?>
+    <?php if($langcode != "" && $request != ""):?>
+        <link rel="alternate" hreflang="<?php echo $langcode; ?>" href="<?php echo $this->getStoreUrl($request, $_store->getStoreId())?>" />
+    <?php endif; ?>
+<?php endforeach; ?>

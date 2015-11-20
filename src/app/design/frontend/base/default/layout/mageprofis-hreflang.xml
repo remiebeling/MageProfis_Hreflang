@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout>
+    <default>
+        <reference name="head">
+            <block type="hreflang/hreflang" name="hreflang.tag" template="page/html/head/hreflang.phtml" />
+        </reference>
+    </default>
+</layout>
+
