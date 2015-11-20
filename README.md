@@ -2,7 +2,7 @@
 creates Hreflang tag for store views.
 
 ##Attention
-store ids & Lang codes have to be maintained in: 
+store ids & Lang codes have to be maintained manually in: 
 app/code/local/MageProfis/Hreflang/Block/Hreflang.php
 
 from Line: 36
