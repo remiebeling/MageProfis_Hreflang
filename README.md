@@ -16,3 +16,8 @@ public function getLangCodeByStoreId($id)
         return $ids[$id];
     }
 </pre>
+
+###to Do:
+<ul>
+<li>Create Setting for Store- and Langcode mapping so that it can be maintained via Backend...</li>
+</ul>
