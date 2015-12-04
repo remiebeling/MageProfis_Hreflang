@@ -37,15 +37,6 @@
                 </admin>
             </resources>
         </acl>
-        <translate>
-            <modules>
-                <MageProfis_HomeBlocks>
-                    <files>
-                        <default>MageProfis_HomeBlocks.csv</default>
-                    </files>
-                </MageProfis_HomeBlocks>
-            </modules>
-        </translate>
     </adminhtml>
     <frontend>
         <layout>
