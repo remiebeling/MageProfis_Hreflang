@@ -1,4 +1,6 @@
-src/app/code/local/MageProfis/Hreflang/                                                 app/code/local/MageProfis/Hreflang/
-src/app/design/frontend/base/default/template/page/html/head/hreflang.phtml             app/design/frontend/base/default/template/page/html/head/hreflang.phtml
-src/app/design/frontend/base/default/layout/mageprofis-hreflang.xml                     app/design/frontend/base/default/layout/mageprofis-hreflang.xml
-src/app/etc/modules/MageProfis_Hreflang.xml                                             app/etc/modules/MageProfis_Hreflang.xml
+src/app/code/community/MageProfis/HrefLang                                          app/code/community/MageProfis/HrefLang
+
+src/app/etc/modules/MageProfis_HrefLang.xml                                         app/etc/modules/MageProfis_HrefLang.xml
+
+src/app/locale/de_DE/MageProfis_HrefLang.csv                                        app/locale/de_DE/MageProfis_HrefLang.csv
+src/app/locale/en_US/MageProfis_HrefLang.csv                                        app/locale/en_US/MageProfis_HrefLang.csv
