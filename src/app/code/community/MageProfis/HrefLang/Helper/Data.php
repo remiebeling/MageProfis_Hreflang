@@ -84,7 +84,7 @@ class MageProfis_HrefLang_Helper_Data extends Mage_Core_Helper_Abstract
         $urls = array();
         foreach (Mage::app()->getStores() as $store) {
             if (isset($data[$store->getId()])) {
-                $baseUrl = $store->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK, null);
+                $baseUrl = $store->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB);
                 $urls[$store->getId()] = $baseUrl . $data[$store->getId()];
             }
         }
