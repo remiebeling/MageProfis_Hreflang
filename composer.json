@@ -1,0 +1,30 @@
+{
+  "name": "mageprofis/hreflang",
+  "license": "GPL-3.0",
+  "type": "magento-module",
+  "description": "Automatically create <link rel='alternate' hreflang tags for Magento multistores",
+  "homepage": "https://github.com/remiebeling/MageProfis_HrefLang",
+  "require": {
+    "php": ">=5.3"
+  },
+  "suggest": {
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "authors": [
+    {
+      "name": "Remi Ebeling",
+      "email": "remi@mage-profis.de",
+      "role": "Author/Maintainer"
+    },
+    {
+      "name": "Christopher Böhm",
+      "email": "christopher@mage-profis.de",
+      "role": "Contributor"
+    },
+    {
+      "name": "Volker Thiel",
+      "email": "volker@mage-profis.de",
+      "role": "Contributor"
+    }
+  ]
+}
