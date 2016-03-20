@@ -3,6 +3,13 @@
 class MageProfis_HrefLang_Model_Observer
 {
     /**
+     * Holder for head block
+     *
+     * @var Mage_Page_Block_Html_Head
+     */
+    protected $headBlock;
+
+    /**
      * Add HrefLang tag to product view page
      */
     public function addTagToProductPage()
