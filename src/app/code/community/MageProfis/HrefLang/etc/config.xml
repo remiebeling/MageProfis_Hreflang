@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageProfis_HrefLang>
+            <version>1.0.0</version>
+        </MageProfis_HrefLang>
+    </modules>
+
+    <global>
+        <helpers>
+            <mp_hreflang>
+                <class>MageProfis_HrefLang_Helper</class>
+            </mp_hreflang>
+        </helpers>
+        <models>
+            <mp_hreflang>
+                <class>MageProfis_HrefLang_Model</class>
+            </mp_hreflang>
+            <mp_hreflang_resource>
+                <class>MageProfis_HrefLang_Model_Resource</class>
+            </mp_hreflang_resource>
+        </models>
+    </global>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <mp_hreflang>
+                    <files>
+                        <default>MageProfis_HrefLang.csv</default>
+                    </files>
+                </mp_hreflang>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <frontend>
+        <events>
+            <!-- Add HrefLang tag to product view pages -->
+            <controller_action_layout_render_before_catalog_product_view>
+                <observers>
+                    <mp_hreflang_add_tag_to_product_page>
+                        <class>MageProfis_HrefLang_Model_Observer</class>
+                        <method>addTagToProductPage</method>
+                    </mp_hreflang_add_tag_to_product_page>
+                </observers>
+            </controller_action_layout_render_before_catalog_product_view>
+            <!-- Add HrefLang tag to category view pages -->
+            <controller_action_layout_render_before_catalog_category_view>
+                <observers>
+                    <mp_hreflang_add_tag_to_category_page>
+                        <class>MageProfis_HrefLang_Model_Observer</class>
+                        <method>addTagToCategoryPage</method>
+                    </mp_hreflang_add_tag_to_category_page>
+                </observers>
+            </controller_action_layout_render_before_catalog_category_view>
+        </events>
+    </frontend>
+
+    <default>
+        <mp_hreflang>
+            <general>
+                <enabled>1</enabled>
+            </general>
+        </mp_hreflang>
+    </default>
+</config>
