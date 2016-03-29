@@ -24,7 +24,7 @@ class MageProfis_HrefLang_Model_Observer
             }
 
             // Is product enabled for this store?
-            $model = Mage::getModel('mp_hreflang/catalog_product_collection')->getCollection()
+            $model = Mage::getModel('mp_hreflang/resource_catalog_product_collection')
                 ->setStore($storeId)
                 ->addAttributeToSelect('status')
                 ->addIdFilter($product->getId())
@@ -54,7 +54,7 @@ class MageProfis_HrefLang_Model_Observer
             }
 
             // Is category enabled for this store?
-            $model = Mage::getModel('mp_hreflang/catalog_category_collection')->getCollection()
+            $model = Mage::getModel('mp_hreflang/resource_catalog_category_collection')
                 ->setStoreId($storeId)
                 ->addIsActiveFilter()
                 ->addIdFilter($category->getId())
@@ -79,7 +79,11 @@ class MageProfis_HrefLang_Model_Observer
     {
         $headBlock = $this->_getHeadBlock();
         if ($headBlock) {
-            $headBlock->addLinkRel('alternate"' . ' hreflang="' . $locale, $href);
+            $linkRel = $this->_getLayout()
+                ->createBlock('core/text', 'link_rel_' . md5($locale . $href))
+                ->setText('<link rel="alternate" hreflang="' . $locale . '" href="' . $href . '"/>')
+            ;
+            $headBlock->append($linkRel);
         }
     }
 
@@ -91,9 +95,19 @@ class MageProfis_HrefLang_Model_Observer
     protected function _getHeadBlock()
     {
         if (!$this->headBlock) {
-            $this->headBlock = Mage::app()->getLayout()->getBlock('head');
+            $this->headBlock = $this->_getLayout()->getBlock('head');
         }
 
         return $this->headBlock;
+    }
+
+    /**
+     * Get layout
+     *
+     * @return Mage_Core_Model_Layout
+     */
+    protected function _getLayout()
+    {
+        return Mage::app()->getLayout();
     }
 }
