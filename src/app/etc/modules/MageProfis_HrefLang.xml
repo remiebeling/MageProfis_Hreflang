@@ -4,6 +4,9 @@
         <MageProfis_HrefLang>
             <active>true</active>
             <codePool>community</codePool>
+            <depends>
+                <Mage_Cms/>
+            </depends>
         </MageProfis_HrefLang>
     </modules>
 </config>
