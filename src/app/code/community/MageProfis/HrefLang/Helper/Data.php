@@ -12,7 +12,7 @@ class MageProfis_HrefLang_Helper_Data extends Mage_Core_Helper_Abstract
     public function getStoreIdsBlacklist($withAdmin = true)
     {
         $config = Mage::getStoreConfig(self::XML_PATH_DISABLED_STOREVIEWS);
-        $ids = array_filter(array_map('trim', explode(',', $config)));
+        $ids = array_map('intval', array_filter(array_map('trim', explode(',', $config))));
         return ($withAdmin ? array_merge($ids, array(0)) : $ids);
     }
 

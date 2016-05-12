@@ -20,9 +20,35 @@
                 <class>MageProfis_HrefLang_Model_Resource</class>
             </mp_hreflang_resource>
         </models>
+        <resources>
+            <mphreflang_setup>
+                <setup>
+                    <module>MageProfis_HrefLang</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+            </mphreflang_setup>
+        </resources>
     </global>
 
     <adminhtml>
+        <events>
+            <adminhtml_cms_page_edit_tab_main_prepare_form>
+                <observers>
+                    <mp_hreflang>
+                        <class>mp_hreflang/observer</class>
+                        <method>addFieldToMainTab</method>
+                    </mp_hreflang>
+                </observers>
+            </adminhtml_cms_page_edit_tab_main_prepare_form>
+            <controller_action_layout_generate_blocks_after>
+                <observers>
+                    <mp_hreflang>
+                        <class>mp_hreflang/observer</class>
+                        <method>addFieldToGrid</method>
+                    </mp_hreflang>
+                </observers>
+            </controller_action_layout_generate_blocks_after>
+        </events>
         <translate>
             <modules>
                 <mp_hreflang>
@@ -54,6 +80,15 @@
                     </mp_hreflang_add_tag_to_category_page>
                 </observers>
             </controller_action_layout_render_before_catalog_category_view>
+            <!-- Add HrefLang tag to cms page -->
+            <controller_action_layout_render_before_cms_page_view>
+                <observers>
+                    <mp_hreflang_cms_page_render>
+                        <class>mp_hreflang/observer</class>
+                        <method>onCmsPageView</method>
+                    </mp_hreflang_cms_page_render>
+                </observers>
+            </controller_action_layout_render_before_cms_page_view>
         </events>
     </frontend>
 
