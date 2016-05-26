@@ -89,8 +89,9 @@ class MageProfis_HrefLang_Model_Observer
      */
     public function onHomePage(Varien_Event_Observer $event)
     {
+        $storeId    = Mage::app()->getStore()->getStoreId()
         $identifier = Mage::getStoreConfig('web/default/cms_home_page');
-        $pageId = (int) Mage::getModel('cms/page')->checkIdentifier($identifier);
+        $pageId     = (int) Mage::getModel('cms/page')->checkIdentifier($identifier, $storeId);
         if (!$pageId) {
             return;
         }
