@@ -80,6 +80,31 @@ class MageProfis_HrefLang_Model_Observer
             return;
         }
 
+        $this->_addHrefLangTagToCmsPage($pageId);
+    }
+
+    /**
+     * @mageEvent controller_action_layout_render_before_cms_index_index
+     * @param Varien_Event_Observer $event
+     */
+    public function onHomePage(Varien_Event_Observer $event)
+    {
+        $identifier = Mage::getStoreConfig('web/default/cms_home_page');
+        $pageId = (int) Mage::getModel('cms/page')->checkIdentifier($identifier);
+        if (!$pageId) {
+            return;
+        }
+
+        $this->_addHrefLangTagToCmsPage($pageId, true);
+    }
+
+    /**
+     *
+     * @param int  $pageId CMS page id
+     * @param bool $home   Is this the homepage, default: false
+     */
+    protected function _addHrefLangTagToCmsPage($pageId, $home = false)
+    {
         $page = Mage::getModel('cms/page')->load($pageId);
         /* @var $page Mage_Cms_Model_Page */
 
@@ -99,8 +124,11 @@ class MageProfis_HrefLang_Model_Observer
                 }
 
                 $href  = Mage::app()->getStore($storeId)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
-                // Check for "." (for .htm/.html cms page identifiers)
-                $href .= strstr($p->getIdentifier(), '.') ? $p->getIdentifier() : trim($p->getIdentifier(), '/') . '/';
+
+                if (!$home) {
+                    // Check for "." (for .htm/.html cms page identifiers)
+                    $href .= strstr($p->getIdentifier(), '.') ? $p->getIdentifier() : trim($p->getIdentifier(), '/') . '/';
+                }
 
                 $locale = Mage::getStoreConfig('general/locale/code', $storeId);
                 $this->_addLinkRelAlternate($href, $locale);
