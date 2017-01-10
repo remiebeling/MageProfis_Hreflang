@@ -31,8 +31,8 @@
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>10</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </enabled>
                         <disabled_storeviews translate="label comment">
                             <label>Disabled StoreViews</label>
@@ -41,8 +41,8 @@
                             <source_model>mp_hreflang/adminhtml_system_config_source_store</source_model>
                             <sort_order>20</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </disabled_storeviews>
                     </fields>
                 </general>
